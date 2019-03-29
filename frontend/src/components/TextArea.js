@@ -7,7 +7,9 @@ export default function TextArea({
   rows,
   onChange,
   name,
-  id
+  id,
+  onKeyDown,
+  onBlur
 }) {
   return (
     <div class="row">
@@ -20,6 +22,8 @@ export default function TextArea({
           onChange={onChange}
           name={name}
           value={value}
+          onKeyDown={onKeyDown}
+          onBlur={onBlur}
         />
         <label for="textarea2" />
       </div>

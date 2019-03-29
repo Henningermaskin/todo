@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Todo from "../containers/Todo";
 
+
 class TodoList extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +14,9 @@ class TodoList extends Component {
   render() {
     return (
       <div>
-        <Todo />
+        <Todo>
+        
+        </Todo>
       </div>
     );
   }

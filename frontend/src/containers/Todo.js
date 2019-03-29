@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import TextInput from "../components/TextInput";
 import Button from "../components/Button";
 import TextArea from "../components/TextArea";
+import todoModel from "./todoModel";
+import TodoItem from "./TodoItem";
 
 class Todo extends Component {
   constructor(props) {
@@ -25,15 +27,22 @@ class Todo extends Component {
     this.setState({ todos: [...this.state.todos, this.state.textInput] });
     this.setState({ textInput: "" });
   }
+ 
 
   render() {
-    const todos = this.state.todos.map(item => <li>{item}</li>);
+    var todos = this.state.todos.map(item => <li><TodoItem 
+      key = {item.id}
+      todo={item}
+     
+      editing={this.state.editing === item.id}
+    /></li>);
 
     return (
       <div>
         <div class="container">
           <form onSubmit={this.submitTodo}>
-            <TextArea onChange={this.onChange} value={this.state.textInput} />
+            <TextArea onChange={this.onChange} value={this.state.textInput}
+             onKeyDown={this.handleNewTodoKeyDown} />
             <Button title="Add Todo" />
           </form>
           <br />
